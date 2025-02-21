@@ -30,8 +30,8 @@ jobs:
         
     - name: Copy test data
       run: |
-        cp -r master/datasets/resume_files/* test_data/resume_set/
-        cp -r master/datasets/job_description/* test_data/JD/
+        cp -r datasets/resume_files/* test_data/resume_set/
+        cp -r datasets/job_description/* test_data/JD/
 
     - name: Test API endpoint
       run: |
