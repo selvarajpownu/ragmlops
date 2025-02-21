@@ -35,7 +35,7 @@ jobs:
 
     - name: Test API endpoint
       run: |
-        python -m uvicorn main:app --host 0.0.0.0 --port 8000 &
+        python -m uvicorn servers.app:app --host 0.0.0.0 --port 8000 &
         sleep 5
         curl -X 'POST' \
           'http://localhost:8000/api/staging/' \
