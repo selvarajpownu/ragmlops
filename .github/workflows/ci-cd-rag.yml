@@ -25,7 +25,7 @@ jobs:
 
     - name: Create test directories
       run: |
-        mkdir -p test_data/resume_set2
+        mkdir -p test_data/resume_set
         mkdir -p test_data/JD
         
     - name: Copy test data
