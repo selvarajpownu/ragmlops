@@ -6,7 +6,7 @@ import fitz
 import easyocr  
 import pandas as pd
 from PIL import Image
-import win32com.client
+#import win32com.client
 from keybert import KeyBERT
 from nltk.corpus import stopwords
 from nltk.tokenize import word_tokenize
@@ -27,7 +27,7 @@ def load_docx(file_path):
     text = "\n".join([doc.page_content for doc in documents])
     text = clean_file(text)
     return text
-
+"""
 def convert_doc_to_docx(file_path):
     word = win32com.client.Dispatch("Word.Application")
     word.Visible = False
@@ -36,7 +36,7 @@ def convert_doc_to_docx(file_path):
     doc.SaveAs(docx_path, FileFormat=16)  # 16 is for .docx format
     doc.Close()
     word.Quit()
-    return docx_path
+    return docx_path"""
 
 def load_pdf(file_path):
     doc = fitz.open(file_path)
