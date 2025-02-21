@@ -1,0 +1,10 @@
+{
+    "config": {
+        "MONGODB_URL": "mongodb://localhost:27017/",
+        "MONGODB_USERNAME": "",
+        "MONGODB_PWD": "",
+        "DB_HOST": "127.0.0.1",
+        "DB_PORT": 8000,
+        "RELOAD": "True"
+    }
+}
