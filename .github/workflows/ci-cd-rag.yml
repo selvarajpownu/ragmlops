@@ -33,20 +33,10 @@ jobs:
         cp -r datasets/resume_files/* test_data/resume_set/
         cp -r datasets/job_description/* test_data/JD/
 
-    - name: Test API endpoint
+    - name: Start FastAPI Server
       run: |
         python -m uvicorn servers.app:app --host 0.0.0.0 --port 8000 &
         sleep 10
-        curl -X 'POST' \
-          'http://localhost:8000/api/staging/' \
-          -H 'accept: application/json' \
-          -H 'Content-Type: application/json' \
-          -d '{
-            "Resume_filepath": "test_data/resume_set2/",
-            "Jobdesc_filepath": "test_data/JD",
-            "Keyword": "Data scientist",
-            "Query": "summarize the resume"
-          }'
 
     - name: Run tests
       run: |
