@@ -36,18 +36,11 @@ jobs:
     - name: Start FastAPI Server
       run: |
         python -m uvicorn servers.app:app --host 0.0.0.0 --port 8000 &
-        sleep 10
+        sleep 30
 
     - name: Test API Endpoints
       run: |
-        curl -X POST "http://localhost:8000/api/staging/" 
-        -H "accept: application/json" 
-        -H "Content-Type: application/json" 
-        -d "{
-            \"Resume_filepath\": \"test_data/resume_set/\", 
-            \"Jobdesc_filepath\": \test_data/JD/\", 
-            \"Keyword\": \"Data scientist\", 
-            \"Query\": \"summarize the resume\"}"
+        curl -X POST "http://localhost:8000/api/staging/" -H "accept: application/json" -H "Content-Type: application/json" -d "{\"Resume_filepath\": \"C:/Users/selvaraj.x/OneDrive - Mphasis/Desktop/POCs/rag_mlflow/resumeParser/datasets/resume_files/\", \"Jobdesc_filepath\": \"C:/Users/selvaraj.x/OneDrive - Mphasis/Desktop/POCs/rag_mlflow/resumeParser/datasets/job_description/\", \"Keyword\": \"Data scientist\", \"Query\": \"summarize the resume\"}"
 
     - name: Run tests
       run: |
