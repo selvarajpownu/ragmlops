@@ -9,6 +9,11 @@ on:
 jobs:
   test:
     runs-on: ubuntu-latest
+    services:
+      mongodb:
+        image: mongo:latest
+        ports:
+          - 27017:27017
 
     steps:
     - uses: actions/checkout@v3
@@ -52,7 +57,3 @@ jobs:
       run: |
         curl -X POST "http://localhost:8000/api/staging/" -H "accept: application/json" -H "Content-Type: application/json" -d "{\"Resume_filepath\": \"C:/Users/selvaraj.x/OneDrive - Mphasis/Desktop/POCs/rag_mlflow/resumeParser/datasets/resume_files/\", \"Jobdesc_filepath\": \"C:/Users/selvaraj.x/OneDrive - Mphasis/Desktop/POCs/rag_mlflow/resumeParser/datasets/job_description/\", \"Keyword\": \"Data scientist\", \"Query\": \"summarize the resume\"}"
 
-    - name: Run tests
-      run: |
-        pip install pytest
-        pytest
