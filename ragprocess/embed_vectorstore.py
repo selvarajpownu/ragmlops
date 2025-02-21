@@ -10,7 +10,7 @@ def embedding_chunks_to_vectorStore(all_splits, job_description, total_chunks):
             chunks.append(split)
             metadata.append({"file_name": file_name})  
 
-    HF_model = HuggingFaceEmbeddings(model_name="C:/Users/selvaraj.x/OneDrive - Mphasis/Desktop/POCs/finetuned-embed-model/")
+    HF_model = HuggingFaceEmbeddings(model_name="sentence-transformers/all-mpnet-base-v2")
     
     HF_embeddings = HF_model.embed_documents(chunks)
     text_embedding_pairs = list(zip(chunks, HF_embeddings))
