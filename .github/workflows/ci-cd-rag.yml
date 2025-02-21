@@ -55,5 +55,5 @@ jobs:
 
     - name: Test API Endpoints
       run: |
-        curl -X POST "http://localhost:8000/api/staging/" -H "accept: application/json" -H "Content-Type: application/json" -d "{\"Resume_filepath\": \"C:/Users/selvaraj.x/OneDrive - Mphasis/Desktop/POCs/rag_mlflow/resumeParser/datasets/resume_files/\", \"Jobdesc_filepath\": \"C:/Users/selvaraj.x/OneDrive - Mphasis/Desktop/POCs/rag_mlflow/resumeParser/datasets/job_description/\", \"Keyword\": \"Data scientist\", \"Query\": \"summarize the resume\"}"
+        curl -X POST "http://localhost:8000/api/staging/" -H "accept: application/json" -H "Content-Type: application/json" -d "{\"Resume_filepath\": \"test_data/resume_set/\", \"Jobdesc_filepath\": \"test_data/JD/\", \"Keyword\": \"Data scientist\", \"Query\": \"summarize the resume\"}"
 
