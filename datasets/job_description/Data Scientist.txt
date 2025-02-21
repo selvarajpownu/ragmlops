@@ -1,0 +1,15 @@
+• Someone with 5-7 years of experience data collection, preprocessing and analysis of large enterprise level data sets 
+• Extensive proficiency in Data Mining, mathematical and statistical analysis of data from various databases or data sources to drive optimization and improvement of product development, marketing techniques and business strategies. 
+• Assess the effectiveness and accuracy of new data sources and data gathering techniques. 
+• Develop custom data models and algorithms to apply to data sets. 
+• Use predictive modeling to increase and optimize customer experiences, revenue generation, ad targeting and other business outcomes. 
+• Coordinate with different functional teams to implement models and monitor outcomes. 
+• Develop processes and tools to monitor and analyze model performance and data accuracy. 
+• Strong problem-solving skills with an emphasis on product development. 
+• Experience using statistical computer languages (R, Python, SLQ, etc.) to manipulate data and draw insights from large data sets. 
+• Experience working with and creating data architectures. 
+• Knowledge of a variety of machine learning techniques (clustering, decision tree learning, artificial neural networks, etc.) and their real-world advantages/drawbacks. 
+• Knowledge of advanced statistical techniques and concepts (regression, properties of distributions, statistical tests and proper usage, etc.) and experience with applications. 
+• Excellent written and verbal communication skills for coordinating across teams. 
+• A drive to learn and master new technologies and techniques.
+has context menu
