@@ -36,7 +36,17 @@ jobs:
     - name: Start FastAPI Server
       run: |
         python -m uvicorn servers.app:app --host 0.0.0.0 --port 8000 &
-        sleep 30
+        # Wait up to 60 seconds for the server to start
+        for i in {1..12}; do
+          if curl -s http://127.0.0.1:8000/docs >/dev/null; then
+            echo "Server is up!"
+            exit 0
+          else
+            echo "Waiting for server to start..."
+            sleep 5
+          fi
+        done
+        echo "Server did not start in time." && exit 1
 
     - name: Test API Endpoints
       run: |
