@@ -48,7 +48,7 @@ async def Post_resume_files(userinput: ResumeFile):
             for result,score in results:
                 file_name = result.metadata["file_name"] 
                 if file_name not in seen_files:
-                    threshold_result.append((file_name, score))
+                    threshold_result.append((file_name, float(score)))
                     seen_files.add(file_name) 
             for file_name, score in threshold_result[:n]:
                 print(f"{file_name} with score {score}")
@@ -61,9 +61,9 @@ async def Post_resume_files(userinput: ResumeFile):
             key_extract.append(text)
         text = "\n\n".join(key_extract)
         
-        response = LLM_results(text, query)
+        #response = LLM_results(text, query)
 
-        return {"Response": response}
+        return {"Response": threshold_result}
         
     except:
         return {
