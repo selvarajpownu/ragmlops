@@ -67,6 +67,6 @@ async def Post_resume_files(userinput: ResumeFile):
         
     except:
         return {
-            "status": 500,
+            "status": total_files,
             "Error": "Internal Server Error"
         }
