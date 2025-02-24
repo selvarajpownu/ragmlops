@@ -31,9 +31,8 @@ async def Post_resume_files(userinput: ResumeFile):
         jd_text = process_input_files(jd_file)
         for text in jd_text:
             job_description = text["text"]
-        a = 1
+
         results = embedding_chunks_to_vectorStore(all_splits, job_description, total_chunks)
-        a = 2
         
         for result,score in results:
             file_name = result.metadata["file_name"] 
@@ -54,13 +53,14 @@ async def Post_resume_files(userinput: ResumeFile):
             for file_name, score in threshold_result[:n]:
                 print(f"{file_name} with score {score}")
             #threshold_results(dataset_path, threshold_result, threshold, n)
-        
+
+        """
         key_extract = []
         for result,_ in results[:2]:
             text = summarize_keybert(result.page_content)
             #text = summarize_nltk(result.page_content)
             key_extract.append(text)
-        text = "\n\n".join(key_extract)
+        text = "\n\n".join(key_extract)"""
         
         #response = LLM_results(text, query)
 
