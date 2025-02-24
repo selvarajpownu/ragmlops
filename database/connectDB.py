@@ -44,7 +44,7 @@ def sync_database_with_results(dataset_path, threshold_result, n):
 
 def threshold_results(dataset_path, threshold_result, threshold, n):
     try:
-        output_folder =f'C:/resumeParser/datasets/selected_resumes/top{threshold}%'
+        output_folder =f'datasets/selected_resumes/top{threshold}%'
         # Ensure the output folder exists
         os.makedirs(output_folder, exist_ok=True)
 
