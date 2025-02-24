@@ -61,7 +61,7 @@ def clean_file(text):
 
 def summarize_keybert(text):
     try:
-        kw_model = KeyBERT(model="model="BAAI/bge-small-en"")
+        kw_model = KeyBERT(model="BAAI/bge-small-en")
         keywords = kw_model.extract_keywords(text, top_n = 200)
         keywords = " ".join([kw[0] for kw in keywords])
         return keywords
