@@ -52,22 +52,22 @@ async def Post_resume_files(userinput: ResumeFile):
                     seen_files.add(file_name) 
             for file_name, score in threshold_result[:n]:
                 print(f"{file_name} with score {score}")
-            #threshold_results(dataset_path, threshold_result, threshold, n)
+            threshold_results(dataset_path, threshold_result, threshold, n)
 
-        """
+        
         key_extract = []
         for result,_ in results[:2]:
             text = summarize_keybert(result.page_content)
             #text = summarize_nltk(result.page_content)
             key_extract.append(text)
-        text = "\n\n".join(key_extract)"""
+        text = "\n\n".join(key_extract)
         
         #response = LLM_results(text, query)
 
-        return {"Response"}
+        return {"Response":text}
         
     except:
         return {
-            "status": seen_files,
+            "status": 500,
             "Error": "Internal Server Error"
         }
