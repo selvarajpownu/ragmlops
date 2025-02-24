@@ -54,17 +54,17 @@ async def Post_resume_files(userinput: ResumeFile):
                 print(f"{file_name} with score {score}")
             threshold_results(dataset_path, threshold_result, threshold, n)
 
-        
+        """
         key_extract = []
         for result,_ in results[:2]:
             text = summarize_keybert(result.page_content)
             #text = summarize_nltk(result.page_content)
             key_extract.append(text)
-        text = "\n\n".join(key_extract)
+        text = "\n\n".join(key_extract)"""
         
         #response = LLM_results(text, query)
 
-        return {"Response":text}
+        return {"Response"}
         
     except:
         return {
