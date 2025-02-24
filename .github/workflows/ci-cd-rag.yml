@@ -28,16 +28,6 @@ jobs:
         python -m pip install --upgrade pip
         pip install -r requirements.txt
 
-    - name: Create test directories
-      run: |
-        mkdir -p test_data/resume_set
-        mkdir -p test_data/JD
-        
-    - name: Copy test data
-      run: |
-        cp -r datasets/resume_files/* test_data/resume_set/
-        cp -r datasets/job_description/* test_data/JD/
-
     - name: Start FastAPI Server
       run: |
         python -m uvicorn servers.app:app --host 0.0.0.0 --port 8000 &
@@ -55,5 +45,5 @@ jobs:
 
     - name: Test API Endpoints
       run: |
-        curl -X POST "http://localhost:8000/api/staging/" -H "accept: application/json" -H "Content-Type: application/json" -d "{\"Resume_filepath\": \"test_data/resume_set/\", \"Jobdesc_filepath\": \"test_data/JD/\", \"Keyword\": \"Data scientist\", \"Query\": \"summarize the resume\"}"
+        curl -X POST "http://localhost:8000/api/staging/" -H "accept: application/json" -H "Content-Type: application/json" -d "{\"Resume_filepath\": \"datasets/resume_files/\", \"Jobdesc_filepath\": \"datasets/job_description/\", \"Keyword\": \"Data scientist\", \"Query\": \"summarize the resume\"}"
 
