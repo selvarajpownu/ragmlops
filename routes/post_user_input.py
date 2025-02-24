@@ -63,7 +63,7 @@ async def Post_resume_files(userinput: ResumeFile):
         
         #response = LLM_results(text, query)
 
-        return {"Response:"}
+        return {"Response:", text}
         
     except:
         return {
