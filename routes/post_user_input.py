@@ -48,12 +48,12 @@ async def Post_resume_files(userinput: ResumeFile):
             for result,score in results:
                 file_name = result.metadata["file_name"] 
                 if file_name not in seen_files:
-                    threshold_result.append((file_name, score))
+                    threshold_result.append((file_name, float(score)))
                     seen_files.add(file_name) 
             for file_name, score in threshold_result[:n]:
                 print(f"{file_name} with score {score}")
             threshold_results(dataset_path, threshold_result, threshold, n)
-        
+
         key_extract = []
         for result,_ in results[:2]:
             text = summarize_keybert(result.page_content)
@@ -63,7 +63,7 @@ async def Post_resume_files(userinput: ResumeFile):
         
         #response = LLM_results(text, query)
 
-        return {"Response:", text}
+        return {"Response": threshold_result}
         
     except:
         return {
