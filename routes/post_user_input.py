@@ -31,8 +31,9 @@ async def Post_resume_files(userinput: ResumeFile):
         jd_text = process_input_files(jd_file)
         for text in jd_text:
             job_description = text["text"]
-
+        a = 1
         results = embedding_chunks_to_vectorStore(all_splits, job_description, total_chunks)
+        a = 2
         
         for result,score in results:
             file_name = result.metadata["file_name"] 
@@ -67,6 +68,6 @@ async def Post_resume_files(userinput: ResumeFile):
         
     except:
         return {
-            "status": total_files,
+            "status": a,
             "Error": "Internal Server Error"
         }
