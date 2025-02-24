@@ -61,9 +61,9 @@ async def Post_resume_files(userinput: ResumeFile):
             key_extract.append(text)
         text = "\n\n".join(key_extract)
         
-        #response = LLM_results(text, query)
+        response = LLM_results(text, query)
 
-        return {"Response"}
+        return {"Response": response}
         
     except:
         return {
