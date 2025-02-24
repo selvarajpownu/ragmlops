@@ -53,7 +53,7 @@ async def Post_resume_files(userinput: ResumeFile):
                     seen_files.add(file_name) 
             for file_name, score in threshold_result[:n]:
                 print(f"{file_name} with score {score}")
-            threshold_results(dataset_path, threshold_result, threshold, n)
+            #threshold_results(dataset_path, threshold_result, threshold, n)
         
         key_extract = []
         for result,_ in results[:2]:
