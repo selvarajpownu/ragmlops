@@ -6,7 +6,6 @@ import fitz
 import easyocr  
 import pandas as pd
 from PIL import Image
-#import win32com.client
 from keybert import KeyBERT
 from nltk.corpus import stopwords
 from nltk.tokenize import word_tokenize
@@ -27,16 +26,6 @@ def load_docx(file_path):
     text = "\n".join([doc.page_content for doc in documents])
     text = clean_file(text)
     return text
-"""
-def convert_doc_to_docx(file_path):
-    word = win32com.client.Dispatch("Word.Application")
-    word.Visible = False
-    doc = word.Documents.Open(file_path)
-    docx_path = file_path + "x"  # Append 'x' for new .docx file
-    doc.SaveAs(docx_path, FileFormat=16)  # 16 is for .docx format
-    doc.Close()
-    word.Quit()
-    return docx_path"""
 
 def load_pdf(file_path):
     doc = fitz.open(file_path)
@@ -57,7 +46,6 @@ def load_excel(file_path):
     text = df.to_string()  # Convert dataframe to string
     return text
 
-
 def load_csv(file_path):
     df = pd.read_csv(file_path)
     text = df.to_string()
@@ -72,10 +60,9 @@ def clean_file(text):
     return text
 
 def summarize_keybert(text):
-    #print("1")
     try:
-        kw_model = KeyBERT(model="C:/Users/selvaraj.x/OneDrive - Mphasis/Desktop/resumeRAG/ft-model")
-        keywords = kw_model.extract_keywords(text, top_n = 200)  # Extract keywords
+        kw_model = KeyBERT(model="model="BAAI/bge-small-en"")
+        keywords = kw_model.extract_keywords(text, top_n = 200)
         keywords = " ".join([kw[0] for kw in keywords])
         return keywords
     except:
@@ -110,17 +97,6 @@ def load_document(file_path):
         return load_excel(file_path)
     elif file_extension == '.csv':
         return load_csv(file_path)
-    elif file_extension in ['.doc', '.docx']:
-        if file_extension == '.doc':
-            try:
-                docx_path = convert_doc_to_docx(file_path)
-                text = load_docx(docx_path)
-                os.remove(docx_path)  # Clean up temporary .docx file
-                return text
-            except RuntimeError as e:
-                raise ValueError(f"Failed to convert {file_path}: {e}")
-        else:
-            return load_docx(file_path)
     elif file_extension in ['.jpg', '.jpeg', '.png']:
         return load_image(file_path)
     else:
